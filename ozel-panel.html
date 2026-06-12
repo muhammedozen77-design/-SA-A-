@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Soft Marine</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="auth.js" defer></script>
+    <script src="soft-marine.js" defer></script>
+  </head>
+  <body class="screen-page" data-auth-module="special">
+    <main class="screen-shell module-screen soft-marine-screen" aria-labelledby="custom-title">
+      <header class="screen-header">
+        <a class="back-link" href="index.html">Geri</a>
+        <div class="title-block">
+          <div class="screen-brand">
+            <img src="https://www.softmarine.com.tr/soft-marine-logo.svg" alt="Soft Marine logo" />
+            <span>SOFT MARINE</span>
+          </div>
+          <p class="eyebrow">FİRMA ÖZEL ALANI</p>
+          <h1 id="custom-title">Soft Marine</h1>
+          <p>Developer ve Patron erişimine açık hassas firma evrak yönetimi.</p>
+        </div>
+      </header>
+
+      <section class="soft-vault-module" aria-labelledby="soft-vault-title">
+        <div class="panel-header">
+          <div>
+            <h2 id="soft-vault-title">Evrak Kutucukları</h2>
+            <p>Küçük kutucuklar ekleyin, adlandırın ve kutu bazlı dosya ya da klasör saklayın.</p>
+          </div>
+          <button class="submit-button" type="button" data-soft-add-box>Yeni Kutucuk</button>
+        </div>
+
+        <div class="soft-vault-grid" data-soft-box-list></div>
+      </section>
+    </main>
+  </body>
+</html>

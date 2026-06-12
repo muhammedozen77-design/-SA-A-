@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Genel Yapay Zekâ</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="auth.js" defer></script>
+    <script src="app.js" defer></script>
+  </head>
+  <body class="screen-page" data-auth-module="ai">
+    <main class="screen-shell ai-screen" aria-labelledby="ai-title">
+      <header class="screen-header">
+        <a class="back-link" href="index.html">Geri</a>
+        <div class="title-block">
+          <div class="screen-brand">
+            <img src="https://www.softmarine.com.tr/soft-marine-logo.svg" alt="Soft Marine logo" />
+            <span>SOFT MARINE</span>
+          </div>
+          <p class="eyebrow">YAPAY ZEKÂ ASİSTANI</p>
+          <h1 id="ai-title">Genel Yapay Zekâ</h1>
+          <p>Sorularını gönder, cevapları sohbet geçmişi olarak ekranda tut.</p>
+        </div>
+      </header>
+
+      <section class="ai-workspace">
+        <form class="ask-form" data-ai-form>
+          <div class="form-title">
+            <h2>Soru Sor</h2>
+            <p>Soft Marine iş akışları için hızlı destek al.</p>
+          </div>
+          <label class="field-label" for="question">Soru</label>
+          <textarea id="question" name="question" rows="6" placeholder="Sorunu yaz" required></textarea>
+          <button class="submit-button" type="submit">Gönder</button>
+        </form>
+
+        <article class="answer-panel" aria-live="polite">
+          <h2>Sohbet Geçmişi</h2>
+          <div class="chat-history" data-chat-history>
+            <p class="empty-history" data-empty-history>Henüz soru gönderilmedi.</p>
+          </div>
+        </article>
+      </section>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Personel Paneli</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="auth.js" defer></script>
+    <script src="firma-paneli.js" defer></script>
+  </head>
+  <body class="screen-page" data-auth-module="personnel">
+    <main class="screen-shell firm-screen" aria-labelledby="firm-title">
+      <header class="screen-header">
+        <a class="back-link" href="index.html">Geri</a>
+        <div class="title-block">
+          <div class="screen-brand">
+            <img src="https://www.softmarine.com.tr/soft-marine-logo.svg" alt="Soft Marine logo" />
+            <span>SOFT MARINE</span>
+          </div>
+          <p class="eyebrow">PERSONEL YÖNETİMİ</p>
+          <h1 id="firm-title">Personel Paneli</h1>
+          <p>Personel evrakları, çalışma saatleri, aktif liste ve maaş puantajı aynı ekranda.</p>
+        </div>
+      </header>
+
+      <section class="firm-tabs" aria-label="Personel Paneli">
+        <div class="tab-list" role="tablist" aria-label="Personel Paneli Sekmeleri">
+          <button class="tab-button is-active" type="button" role="tab" aria-selected="true" data-tab-button="documents" data-auth-section="personnel.documents">
+            Personel Evrakları
+          </button>
+          <button class="tab-button" type="button" role="tab" aria-selected="false" data-tab-button="hours" data-auth-section="personnel.hours">
+            Personel Çalışma Saatleri
+          </button>
+          <button class="tab-button" type="button" role="tab" aria-selected="false" data-tab-button="list" data-auth-section="personnel.list">
+            Personel Listesi
+          </button>
+          <button class="tab-button" type="button" role="tab" aria-selected="false" data-tab-button="payroll" data-auth-section="personnel.payroll">
+            Maaş Puantajı
+          </button>
+        </div>
+
+        <section class="tab-panel is-active" data-tab-panel="documents" data-auth-section="personnel.documents" aria-labelledby="personel-evraklari-title">
+          <div class="panel-header">
+            <div>
+              <h2 id="personel-evraklari-title">Personel Evrakları</h2>
+              <p>Personel kartları, işe giriş bilgileri ve kişiye özel özlük dosyaları.</p>
+            </div>
+            <button class="icon-button" type="button" aria-label="Yeni personel ekle" data-open-personnel-dialog>+</button>
+          </div>
+
+          <div class="personnel-layout">
+            <aside class="personnel-list-shell">
+              <div class="personnel-list" data-personnel-list></div>
+            </aside>
+            <section class="personnel-detail" data-personnel-detail></section>
+          </div>
+        </section>
+
+        <section class="tab-panel" data-tab-panel="hours" data-auth-section="personnel.hours" aria-labelledby="personel-calisma-saatleri-title">
+          <div class="panel-header">
+            <div>
+              <h2 id="personel-calisma-saatleri-title">Personel Çalışma Saatleri</h2>
+              <p>Ay bazlı saat girişi, resmi tatil renklendirmesi ve Excel aktarımı.</p>
+            </div>
+            <div class="panel-actions">
+              <label class="month-field" for="work-year">Yıl</label>
+              <select id="work-year" data-work-year></select>
+              <label class="month-field" for="work-month">Ay</label>
+              <input id="work-month" type="month" data-work-month />
+              <label class="secondary-button file-import-button">
+                Excel Yükle
+                <input type="file" accept=".xlsx,.csv" data-import-hours-file />
+              </label>
+              <button class="secondary-button" type="button" data-export-excel>Excel İndir</button>
+              <span class="import-status" data-import-status></span>
+            </div>
+          </div>
+
+          <div class="hours-table-shell" data-hours-table></div>
+        </section>
+
+        <section class="tab-panel" data-tab-panel="list" data-auth-section="personnel.list" aria-labelledby="personel-listesi-title">
+          <div class="panel-header">
+            <div>
+              <h2 id="personel-listesi-title">Personel Listesi</h2>
+              <p>Aktif personellerin güncel görev ve işe giriş görünümü.</p>
+            </div>
+          </div>
+
+          <div class="personnel-roster-shell" data-active-personnel-list></div>
+        </section>
+
+        <section class="tab-panel" data-tab-panel="payroll" data-auth-section="personnel.payroll" aria-labelledby="maas-puantaji-title">
+          <div class="panel-header">
+            <div>
+              <h2 id="maas-puantaji-title">Maaş Puantajı</h2>
+              <p>Çalışma saatlerinden beslenen aylık maaş hesaplama ekranı.</p>
+            </div>
+            <div class="panel-actions">
+              <button class="secondary-button" type="button" data-export-payroll>Excel İndir</button>
+            </div>
+          </div>
+
+          <div class="payroll-shell" data-payroll-panel></div>
+        </section>
+      </section>
+
+      <dialog class="personnel-dialog" data-personnel-dialog>
+        <form method="dialog" class="personnel-form" data-personnel-form>
+          <h2>Yeni Personel</h2>
+          <label class="field-label" for="personnel-name">Personel adı</label>
+          <input id="personnel-name" name="name" type="text" autocomplete="off" required />
+          <label class="field-label" for="personnel-start-date">İşe giriş tarihi</label>
+          <input id="personnel-start-date" name="startDate" type="date" required />
+          <label class="field-label" for="personnel-profession">Meslek</label>
+          <select id="personnel-profession" name="profession" required>
+            <option value="">Meslek seç</option>
+            <option value="ELEKTRİK KABLO">ELEKTRİK KABLO</option>
+            <option value="ELEKTRİK BAĞLANTI">ELEKTRİK BAĞLANTI</option>
+            <option value="MONTAJ">MONTAJ</option>
+            <option value="MONTAJ YARDIMCISI">MONTAJ YARDIMCISI</option>
+            <option value="EKİP BAŞI">EKİP BAŞI</option>
+            <option value="USTA BAŞI">USTA BAŞI</option>
+            <option value="KAYNAKÇI">KAYNAKÇI</option>
+            <option value="TAŞÇI">TAŞÇI</option>
+          </select>
+          <div class="form-actions">
+            <button class="secondary-button" type="button" data-close-personnel-dialog>İptal</button>
+            <button class="submit-button" type="submit">Kaydet</button>
+          </div>
+        </form>
+      </dialog>
+    </main>
+  </body>
+</html>

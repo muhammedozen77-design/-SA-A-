@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Firma Paneli</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="auth.js" defer></script>
+    <script src="firma-hakedis.js" defer></script>
+  </head>
+  <body class="screen-page" data-auth-module="company">
+    <main class="screen-shell module-screen company-screen" aria-labelledby="company-title">
+      <header class="screen-header">
+        <a class="back-link" href="index.html">Geri</a>
+        <div class="title-block">
+          <div class="screen-brand">
+            <img src="https://www.softmarine.com.tr/soft-marine-logo.svg" alt="Soft Marine logo" />
+            <span>SOFT MARINE</span>
+          </div>
+          <p class="eyebrow">FİRMA YÖNETİMİ</p>
+          <h1 id="company-title">Firma Paneli</h1>
+          <p>Firma süreçleri için ayrılmış sade yönetim alanı.</p>
+        </div>
+      </header>
+
+      <section class="company-module" data-auth-section="company.entitlements" aria-labelledby="company-entitlement-title">
+        <div class="panel-header">
+          <div>
+            <h2 id="company-entitlement-title">Hakediş</h2>
+            <p>Personel Paneli’nde girilen çalışma saatlerinden otomatik hesaplanan firma hakediş özeti.</p>
+          </div>
+          <div class="panel-actions">
+            <label class="month-field" for="company-year">Yıl</label>
+            <select id="company-year" data-company-year></select>
+            <label class="month-field" for="company-month">Ay</label>
+            <input id="company-month" type="month" data-company-month />
+          </div>
+        </div>
+
+        <div class="company-entitlement-shell" data-company-entitlement></div>
+      </section>
+    </main>
+  </body>
+</html>
